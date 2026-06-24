@@ -1,6 +1,6 @@
 package binary_search_tree;
 
-class Node {
+class Node{
     int data;
     Node left;
     Node right;
