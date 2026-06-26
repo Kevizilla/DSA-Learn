@@ -6,7 +6,6 @@ public class BinarySearchTree {
     public void insert(int data) {
     root = insert(root, data);
     }
-
     private Node insert(Node node, int data){
         if(node == null){
             return new Node(data);
@@ -23,7 +22,6 @@ public class BinarySearchTree {
     public boolean search(int data) {
         return search(root, data);
     }
-
     private boolean search(Node node, int data){
         if (node == null){
             return false;
@@ -36,5 +34,18 @@ public class BinarySearchTree {
         }
         return  search(node.right, data);
     }
+
+    public void inorder(){
+        inorder(root);
+    }
+    private void inorder(Node node){
+        if (node == null){
+            return;
+        }
+        inorder(node.left);
+        System.out.println(node.data);
+        inorder(node.right);
+    }
+
 
 }
