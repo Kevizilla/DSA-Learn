@@ -70,4 +70,32 @@ public class BinarySearchTree {
         postorder(node.right);
         System.out.print(node.data);
     }
+
+    public int findMin(){
+       if (root == null){
+           return -1;
+       }
+       int min = root.data;
+       Node current = root.left;
+       while(current != null){
+           min = current.data;
+           current = current.left;
+       }
+       return min;
+    }
+
+    public int findMax(){
+        if (root == null){
+            return -1;
+        }
+        int max = root.data;
+        Node current = root.right;
+        while(current != null){
+            max = current.data;
+            current = current.right;
+        }
+        return max;
+    }
+
+
 }
