@@ -54,7 +54,7 @@ public class BinarySearchTree {
         if (node == null){
             return;
         }
-        System.out.println(node.data);
+        System.out.print(node.data);
         preorder(node.left);
         preorder(node.right);
     }
@@ -68,6 +68,6 @@ public class BinarySearchTree {
         }
         postorder(node.left);
         postorder(node.right);
-        System.out.println(node.data);
+        System.out.print(node.data);
     }
 }
