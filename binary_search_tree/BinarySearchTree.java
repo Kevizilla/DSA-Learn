@@ -47,5 +47,17 @@ public class BinarySearchTree {
         inorder(node.right);
     }
 
+    public void preorder(){
+        preorder(root);
+    }
+    private void preorder(Node node){
+        if (node == null){
+            return;
+        }
+        System.out.println(node.data);
+        preorder(node.left);
+        preorder(node.right);
+    }
+
 
 }
