@@ -59,5 +59,15 @@ public class BinarySearchTree {
         preorder(node.right);
     }
 
-
+    public void postorder(){
+        postorder(root);
+    }
+    private void postorder(Node node){
+        if (node == null){
+            return;
+        }
+        postorder(node.left);
+        postorder(node.right);
+        System.out.println(node.data);
+    }
 }
