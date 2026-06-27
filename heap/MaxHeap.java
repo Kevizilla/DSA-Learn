@@ -25,17 +25,43 @@ public class MaxHeap {
                 int temp = heap[i];
                 heap[i] = heap[parentIndex];
                 heap[parentIndex] = temp;
-                i = parentIndex;  // move up and repeat
+                i = parentIndex;
             } else {
-                break;  // heap property satisfied, stop
+                break;
             }
         }
     }
 
     public int extractMax() {
-        // TODo
+        if (size == 0) return -1;
+
+        int max = heap[0];
+        heap[0] = heap[size - 1];
+        size--;
+        heapifyDown(0);
+        return max;
     }
     private void heapifyDown(int i) {
-        // TODO — after extractMax, fix the heap downwards
+        while (true) {
+            int largest = i;
+            int left = leftChild(i);
+            int right = rightChild(i);
+
+            if (left < size && heap[left] > heap[largest]) {
+                largest = left;
+            }
+            if (right < size && heap[right] > heap[largest]) {
+                largest = right;
+            }
+
+            if (largest != i) {
+                int temp = heap[i];
+                heap[i] = heap[largest];
+                heap[largest] = temp;
+                i = largest;
+            } else {
+                break;
+            }
+        }
     }
 }
