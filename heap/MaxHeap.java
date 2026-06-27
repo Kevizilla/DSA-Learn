@@ -64,4 +64,11 @@ public class MaxHeap {
             }
         }
     }
+
+    public void display() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(heap[i] + " ");
+        }
+        System.out.println();
+    }
 }
