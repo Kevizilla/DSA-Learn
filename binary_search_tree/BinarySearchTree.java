@@ -43,7 +43,7 @@ public class BinarySearchTree {
             return;
         }
         inorder(node.left);
-        System.out.println(node.data);
+        System.out.print(node.data);
         inorder(node.right);
     }
 
@@ -100,13 +100,24 @@ public class BinarySearchTree {
     public int height() {
         return height(root);
     }
-
     private int height(Node node) {
         if(node == null){
             return 0;
         }
         int leftHeight = height(node.left);
         int rightHeight = height(node.right);
-        return Math.max(leftHeight, rightHeight) + 1;
+        return Math.max(leftHeight, rightHeight)+1;
+    }
+
+    public int sumOfTree(){
+        return sumOfTree(root);
+    }
+    private int sumOfTree(Node node){
+        if (node == null){
+            return 0;
+        }
+        int sumOfLeft = sumOfTree(node.left);
+        int sumOfRight = sumOfTree(node.right);
+        return sumOfRight + sumOfLeft + node.data;
     }
 }
