@@ -6,7 +6,7 @@ public class HashMap {
     private final LinkedList<Entry>[] buckets;
     private final int capacity;
 
-    HashMap(int capacity) {
+    public HashMap(int capacity) {
         this.capacity = capacity;
         buckets = new LinkedList[capacity];
         for (int i = 0; i < capacity; i++) {
