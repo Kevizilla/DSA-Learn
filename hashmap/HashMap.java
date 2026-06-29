@@ -3,8 +3,8 @@ package hashmap;
 import java.util.LinkedList;
 
 public class HashMap {
-    private LinkedList<Entry>[] buckets;  // array of linked lists
-    private int capacity;
+    private final LinkedList<Entry>[] buckets;
+    private final int capacity;
 
     HashMap(int capacity) {
         this.capacity = capacity;
