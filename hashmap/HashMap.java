@@ -30,7 +30,13 @@ public class HashMap {
     }
 
     public int get(String key) {
-        // TODO — return -1 if not found
+        int index = hash(key);
+        for(Entry e : buckets[index]) {
+            if(e.key.equals(key)){
+                return e.value;
+            }
+        }
+        return -1;
     }
 
     public void remove(String key) {
