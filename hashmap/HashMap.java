@@ -40,6 +40,12 @@ public class HashMap {
     }
 
     public void remove(String key) {
-        // TODO
+        int index = hash(key);
+        for(Entry e : buckets[index]) {
+            if(e.key.equals(key)){
+                buckets[index].remove(e);
+                break;
+            }
+        }
     }
 }
