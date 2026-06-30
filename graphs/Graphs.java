@@ -1,9 +1,6 @@
 package graphs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graphs {
     private Map<Integer, List<Integer>> adjList;
@@ -27,6 +24,26 @@ public class Graphs {
     public void display() {
         for(int i : adjList.keySet()) {
             System.out.println(i + " -> " + adjList.get(i));
+        }
+    }
+
+    public void bfs(int start) {
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited.add(start);
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            int current = queue.poll();   // dequeue from front
+            System.out.print(current + " ");
+
+            for (int neighbour : adjList.get(current)) {
+                if (!visited.contains(neighbour)) {
+                    visited.add(neighbour);
+                    queue.add(neighbour);
+                }
+            }
         }
     }
 }
