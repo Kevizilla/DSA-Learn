@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
- class Graphs {
+public class Graphs {
     private Map<Integer, List<Integer>> adjList;
 
-    public Graphs() {
+     Graphs() {
         adjList = new HashMap<>();
     }
 
