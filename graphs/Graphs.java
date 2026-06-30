@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Graphs {
+ class Graphs {
     private Map<Integer, List<Integer>> adjList;
 
     public Graphs() {
@@ -21,6 +21,7 @@ public class Graphs {
         addVertex(v2);
         adjList.get(v1).add(v2);
         adjList.get(v2).add(v1);
+
     }
 
     public void display() {
