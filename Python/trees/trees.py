@@ -12,12 +12,6 @@ class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def insert(self, data):
-        # TODO: for a plain binary tree, no ordering rule —
-        # just insert at the first available empty spot,
-        # level by level (like filling a level-order layout)
-        pass
-
     def preorder(self):
         # TODO: root -> left -> right
         pass
