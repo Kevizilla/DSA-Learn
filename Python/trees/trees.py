@@ -13,8 +13,15 @@ class BinaryTree:
         self.root = None
 
     def preorder(self):
-        # TODO: root -> left -> right
-        pass
+        result = []
+        def _traverse(node):
+            if node is None:
+                return
+            result.append(node.data)
+            _traverse(node.left)
+            _traverse(node.right)
+        _traverse(self.root)
+        return result
 
     def inorder(self):
         # TODO: left -> root -> right
