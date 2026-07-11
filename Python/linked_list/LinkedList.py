@@ -23,8 +23,13 @@ class LinkedList:
         self.length += 1
 
     def prepend(self, data):
-        # TODO: add a node to the beginning, O(1)
-        pass
+        new_node = Node(data)
+        if self.head is None:
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+        self.head = new_node
+        self.length += 1
 
     def insert(self, index, data):
         # TODO: insert at a specific position
