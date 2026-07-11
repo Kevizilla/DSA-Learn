@@ -95,10 +95,14 @@ class LinkedList:
             current_node = current_node.next
         print("None")
 
-
     def __repr__(self):
-        # TODO: return something like "1 -> 2 -> 3 -> None"
-        pass
+        current_node = self.head
+        result = ""
+        while current_node is not None:
+            result += f"{current_node.data} -> "
+            current_node = current_node.next
+        result += "None"
+        return result
 
     def __len__(self):
         return self.length
