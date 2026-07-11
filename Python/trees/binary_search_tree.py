@@ -1,8 +1,4 @@
-class BSTNode:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
+from trees.binary_trees import TreeNode
 
 
 class BST:
@@ -10,8 +6,15 @@ class BST:
         self.root = None
 
     def insert(self, data):
-        # TODO
-        pass
+        def _insert(node, data):
+            if node is None:
+                return TreeNode(data)
+            elif data < node.data:
+                node.left = _insert(node.left, data)
+            elif data > node.data:
+                node.right = _insert(node.right, data)
+            return node
+        _insert(self.root, data)
 
     def search(self, data):
         # TODO — return True/False
