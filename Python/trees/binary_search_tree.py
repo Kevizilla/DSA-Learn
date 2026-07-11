@@ -17,8 +17,17 @@ class BST:
         _insert(self.root, data)
 
     def search(self, data):
-        # TODO — return True/False
-        pass
+        def _search(node, data):
+            if node is None:
+                return False
+            if data == node.data:
+                return True
+            elif data < node.data:
+                return _search(node.left, data)
+            else:
+                return _search(node.right, data)
+
+        return _search(self.root, data)
 
     def delete(self, data):
         # TODO — the hard one, save for last
