@@ -48,6 +48,5 @@ class HashMap:
                 pairs.append(f"{key!r}: {value!r}")
         return "{" + ", ".join(pairs) + "}"
 
-
     def __len__(self):
         return self.length
