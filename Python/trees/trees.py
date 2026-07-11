@@ -24,12 +24,30 @@ class BinaryTree:
         return result
 
     def inorder(self):
-        # TODO: left -> root -> right
-        pass
+        result = []
+
+        def _traverse(node):
+            if node is None:
+                return
+            _traverse(node.left)
+            result.append(node.data)
+            _traverse(node.right)
+
+        _traverse(self.root)
+        return result
 
     def postorder(self):
-        # TODO: left -> right -> root
-        pass
+        result = []
+
+        def _traverse(node):
+            if node is None:
+                return
+            _traverse(node.left)
+            _traverse(node.right)
+            result.append(node.data)
+
+        _traverse(self.root)
+        return result
 
     def level_order(self):
         # TODO: breadth-first, level by level
