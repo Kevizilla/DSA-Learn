@@ -49,10 +49,10 @@ class BinaryTree:
         _traverse(self.root)
         return result
 
-    def level_order(self):
-        # TODO: breadth-first, level by level
-        pass
-
     def height(self):
-        # TODO: longest path from root to a leaf
-        pass
+        def _height(node):
+            if node is None:
+                return -1
+            return 1 + max(_height(node.left), _height(node.right))
+
+        return _height(self.root)
