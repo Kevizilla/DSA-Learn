@@ -32,8 +32,16 @@ class LinkedList:
         self.length += 1
 
     def insert(self, index, data):
-        # TODO: insert at a specific position
-        pass
+        if index == self.length:
+            self.append(data)
+            return
+        elif index == 0:
+            self.prepend(data)
+        elif index > self.length:
+            raise IndexError
+        else:
+            pass
+
 
     def delete(self, data):
         # TODO: remove first node matching this value
