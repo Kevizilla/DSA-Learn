@@ -78,8 +78,15 @@ class LinkedList:
             current_node = current_node.next
 
     def find(self, data):
-        # TODO: return index of first match, or -1
-        pass
+        current_node = self.head
+        index = 0
+        while current_node is not None:
+            if current_node.data == data:
+                return index
+            index += 1
+            current_node = current_node.next
+        return -1
+
 
     def display(self):
         current_node = self.head
