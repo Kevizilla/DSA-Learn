@@ -19,11 +19,9 @@ class LinkedList:
             self.tail = self.head
             self.length += 1
             return
-        else:
-            self.tail.next = Node(data)
-            self.tail = self.tail.next
-            self.length += 1
-            return
+        self.tail.next = Node(data)
+        self.tail = self.tail.next
+        self.length += 1
 
     def prepend(self, data):
         # TODO: add a node to the beginning, O(1)
