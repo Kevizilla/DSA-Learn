@@ -1,3 +1,3 @@
-from .linked_list import LinkedList, Node
+from .linked_list import LinkedList
 
-__all__ = ["LinkedList", "Node"]
+__all__ = ["LinkedList"]

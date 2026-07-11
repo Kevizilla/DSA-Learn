@@ -56,10 +56,26 @@ class LinkedList:
         except IndexError:
             print("Index out of range")
 
-
     def delete(self, data):
-        # TODO: remove first node matching this value
-        pass
+        if self.head is None:
+            return  # nothing to delete
+
+        if self.head.data == data:
+            self.head = self.head.next
+            self.length -= 1
+            if self.head is None:  # list is now empty
+                self.tail = None
+            return
+
+        current_node = self.head
+        while current_node.next is not None:
+            if current_node.next.data == data:
+                current_node.next = current_node.next.next
+                self.length -= 1
+                if current_node.next is None:  # we just deleted the tail
+                    self.tail = current_node
+                return
+            current_node = current_node.next
 
     def find(self, data):
         # TODO: return index of first match, or -1
