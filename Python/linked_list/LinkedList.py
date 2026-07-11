@@ -14,13 +14,12 @@ class LinkedList:
         self.length = 0
 
     def append(self, data):
+        new_node = Node(data)
         if self.head is None:
-            self.head = Node(data)
-            self.tail = self.head
-            self.length += 1
-            return
-        self.tail.next = Node(data)
-        self.tail = self.tail.next
+            self.head = new_node
+        else:
+            self.tail.next = new_node
+        self.tail = new_node
         self.length += 1
 
     def prepend(self, data):
