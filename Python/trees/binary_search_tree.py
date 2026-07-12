@@ -33,7 +33,7 @@ class BST:
         def _find_min(node):
             while node.left is not None:
                 node = node.left
-            return node.data
+            return node
 
         def _delete(node, data):
             if node is None:
@@ -45,25 +45,13 @@ class BST:
                 node.right = _delete(node.right, data)
 
             else:
-                #case 1,2:
+                # Case 1,2:
                 if node.left is None or node.right is None:
                     return node.left if node.left else node.right
                 # Case 3:
-
-
-            # Find inorder successor
-            # TODO
-
-            # Replace current node's value
-            # TODO
-
-            # Delete the duplicate successor
-            # TODO
-
+                successor = _find_min(node.right)
+                node.data = successor.data
+                node.right = _delete(node.right, successor.data)
             return node
 
         self.root = _delete(self.root, data)
-
-    def inorder(self):
-        # same as before — but now the output will come out SORTED
-        pass
