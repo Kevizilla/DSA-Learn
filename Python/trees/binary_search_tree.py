@@ -36,28 +36,20 @@ class BST:
             return node.data
 
         def _delete(node, data):
-            # Base case
             if node is None:
                 return None
 
-            # Search for the node
             if data < node.data:
                 node.left = _delete(node.left, data)
-
             elif data > node.data:
                 node.right = _delete(node.right, data)
 
             else:
-            # -------------------------
-            # Found the node to delete
-            # -------------------------
+                #case 1,2:
+                if node.left is None or node.right is None:
+                    return node.left if node.left else node.right
+                # Case 3:
 
-            # Case 1 & 2:
-            # Leaf or one child
-            # TODO
-
-            # Case 3:
-            # Two children
 
             # Find inorder successor
             # TODO
