@@ -3,7 +3,8 @@ class Graph:
         self.graph = {}
 
     def add_vertex(self, vertex):
-        pass
+        if vertex not in self.graph:
+            self.graph[vertex] = []
 
     def add_edge(self, u, v):
         pass
