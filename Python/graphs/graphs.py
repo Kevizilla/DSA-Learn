@@ -13,7 +13,14 @@ class Graph:
         self.graph[v].append(u)
 
     def remove_edge(self, u, v):
-        pass
+        if u not in self.graph:
+            return
+        if v not in self.graph:
+            return
+        if v in self.graph[u]:
+            self.graph[u].remove(v)
+        if u in self.graph[v]:
+            self.graph[v].remove(u)
 
     def remove_vertex(self, vertex):
         pass
