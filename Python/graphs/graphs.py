@@ -34,4 +34,7 @@ class Graph:
         self.graph.pop(vertex)
 
     def __repr__(self):
-        pass
+        lines = []
+        for vertex, neighbours in self.graph.items():
+            lines.append(f"{vertex} -> {neighbours}")
+        return "\n".join(lines)
