@@ -33,6 +33,23 @@ class Graph:
 
         self.graph.pop(vertex)
 
+    def dfs(self, start):
+        visited = set()
+
+        def _dfs(vertex):
+            print(vertex)
+            visited.add(vertex)
+            for neighbour in self.graph[vertex]:
+                if neighbour not in visited:
+                    _dfs(neighbour)
+
+        if start in self.graph:
+            _dfs(start)
+
+
+
+
+
     def __repr__(self):
         lines = []
         for vertex, neighbours in self.graph.items():
