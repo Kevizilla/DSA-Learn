@@ -7,7 +7,10 @@ class Graph:
             self.graph[vertex] = []
 
     def add_edge(self, u, v):
-        pass
+        self.add_vertex(u)
+        self.add_vertex(v)
+        self.graph[u].append(v)
+        self.graph[v].append(u)
 
     def remove_edge(self, u, v):
         pass
