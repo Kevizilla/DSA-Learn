@@ -14,6 +14,25 @@ class MinHeap:
     def _swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
+    def _bubble_down(self, index):
+        while True:
+            left = self._left(index)
+            right = self._right(index)
+
+            if left >= len(self.heap):
+                break
+
+            smallest = left
+
+            if right < len(self.heap) and self.heap[right] < self.heap[left]:
+                smallest = right
+
+            if self.heap[index] <= self.heap[smallest]:
+                break
+
+            self._swap(index, smallest)
+            index = smallest
+
     def insert(self, value):
         self.heap.append(value)
         index = len(self.heap) - 1
@@ -35,27 +54,8 @@ class MinHeap:
             return self.heap.pop()
 
         min_value = self.heap[0]
-
         self.heap[0] = self.heap.pop()
 
-        current = 0
-
-        while True:
-            left = self._left(current)
-            right = self._right(current)
-
-            if left >= len(self.heap):
-                break
-
-            smallest = left
-
-            if right < len(self.heap) and self.heap[right] < self.heap[left]:
-                smallest = right
-
-            if self.heap[current] <= self.heap[smallest]:
-                break
-
-            self._swap(current, smallest)
-            current = smallest
+        self._bubble_down(0)
 
         return min_value
