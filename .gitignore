@@ -37,3 +37,6 @@ Python/.venv/
 # Python cache
 __pycache__/
 *.py[cod]
+
+# Ignore this specific file
+Python/Test
