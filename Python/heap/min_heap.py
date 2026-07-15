@@ -59,3 +59,10 @@ class MinHeap:
         self._bubble_down(0)
 
         return min_value
+
+    def heapify(self):
+        current = len(self.heap) // 2 - 1
+
+        while current >= 0:
+            self._bubble_down(current)
+            current -= 1
