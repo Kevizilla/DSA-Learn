@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -46,8 +49,23 @@ class Graph:
         if start in self.graph:
             _dfs(start)
 
+    def bfs(self, start):
+        if start not in self.graph:
+            return
 
+        visited = set()
+        queue = deque()
 
+        queue.append(start)
+        visited.add(start)
+
+        while queue:
+            vertex = queue.popleft()
+            print(vertex)
+            for neighbour in self.graph[vertex]:
+                if neighbour not in visited:
+                    queue.append(neighbour)
+                    visited.add(neighbour)
 
 
     def __repr__(self):
