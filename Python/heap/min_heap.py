@@ -18,6 +18,20 @@ class MinHeap:
     def _swap(self, i, j):
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
+    def _bubble_up(self, index):
+        while index > 0:
+            parent = self._parent(index)
+
+            if self.heap[parent] <= self.heap[index]:
+                break
+
+            self._swap(parent, index)
+            index = parent
+
+    def insert(self, value):
+        self.heap.append(value)
+        self._bubble_up(len(self.heap) - 1)
+
     def _bubble_down(self, index):
         while True:
             left = self._left(index)
@@ -36,19 +50,6 @@ class MinHeap:
 
             self._swap(index, smallest)
             index = smallest
-
-    def insert(self, value):
-        self.heap.append(value)
-        index = len(self.heap) - 1
-
-        while index > 0:
-            parent_index = self._parent(index)
-
-            if self.heap[parent_index] > self.heap[index]:
-                self._swap(index, parent_index)
-                index = parent_index
-            else:
-                break
 
     def remove_min(self):
         if not self.heap:
