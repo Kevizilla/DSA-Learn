@@ -1,6 +1,10 @@
 class MinHeap:
-    def __init__(self):
-        self.heap = []
+    def __init__(self, values=None):
+        if values is None:
+            self.heap = []
+        else:
+            self.heap = values.copy()
+            self.heapify()
 
     def _parent(self, index):
         return (index - 1) // 2
