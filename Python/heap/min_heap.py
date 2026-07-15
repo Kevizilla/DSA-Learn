@@ -28,7 +28,6 @@ class MinHeap:
                 break
 
     def remove_min(self):
-        # Handle empty heap
         if not self.heap:
             return None
 
@@ -37,31 +36,26 @@ class MinHeap:
 
         min_value = self.heap[0]
 
-        self.heap[0] = self.heap[-1]
-        self.heap.pop()
-        current_index = 0
-        # Bubble down
+        self.heap[0] = self.heap.pop()
+
+        current = 0
+
         while True:
-            left_index = self._left(current_index)
-            right_index = self._right(current_index)
-            if left_index < len(self.heap):
-                if right_index < len(self.heap):
-                    if self.heap[current_index] > min(self.heap[left_index], self.heap[right_index]):
-                        if self.heap[current_index] > self.heap[left_index]:
-                            self._swap(current_index, left_index)
-                            current_index = left_index
-                        else:
-                            self._swap(current_index, right_index)
-                            current_index = right_index
-                    else:
-                        break
-                else:
-                    if self.heap[current_index] > self.heap[left_index]:
-                        self._swap(current_index, left_index)
-                        current_index = left_index
-                    else:
-                        break
-            else:
+            left = self._left(current)
+            right = self._right(current)
+
+            if left >= len(self.heap):
                 break
+
+            smallest = left
+
+            if right < len(self.heap) and self.heap[right] < self.heap[left]:
+                smallest = right
+
+            if self.heap[current] <= self.heap[smallest]:
+                break
+
+            self._swap(current, smallest)
+            current = smallest
 
         return min_value
