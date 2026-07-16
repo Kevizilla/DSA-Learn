@@ -15,3 +15,14 @@ def two_sum_sorted(lst, target):
             right -= 1
 
     return None
+
+ def remove_duplicates(lst):
+     write = 0
+
+     for read in range(1, len(lst)):
+
+         if lst[write] != lst[read]:
+             write += 1
+             lst[write] = lst[read]
+
+     return write + 1
