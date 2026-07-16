@@ -1,9 +1,9 @@
-from math import inf
+from math import inf as _inf
 
 #To find the length of the smallest contiguous subarray whose sum is greater than or equal to S
 def smallest_subarray(lst, s):
     start = 0
-    min_len = inf
+    min_len = _inf
     window_sum = 0
 
     for end in range(len(lst)):
@@ -16,7 +16,7 @@ def smallest_subarray(lst, s):
             window_sum -= lst[start]
             start += 1
 
-    if min_len == inf:
+    if min_len == _inf:
         return 0
 
     return min_len
