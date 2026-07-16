@@ -11,8 +11,7 @@ def smallest_subarray(lst, s):
 
         while window_sum >= s:
             current_len = (end - start + 1)
-            if current_len < min_len:
-                min_len = current_len
+            min_len = min(min_len, current_len)
 
             window_sum -= lst[start]
             start += 1
@@ -25,19 +24,18 @@ def smallest_subarray(lst, s):
 # To find the length of the longest substring with no repeated characters.
 def longest_unique_substring(string):
     start = 0
-    window = set()
+    window = {}
     max_len = 0
 
     for end in range(len(string)):
         char = string[end]
 
-        while char in window:
-            window.remove(string[start])
-            start += 1
+        if char in window and window[char] >= start:
+            start = window[char] + 1
 
-        window.add(char)
-        current_len = (end - start + 1)
-        if current_len > max_len:
-            max_len = current_len
+        window[char] = end
+
+        current_len = end - start + 1
+        max_len = max(max_len, current_len)
 
     return max_len
