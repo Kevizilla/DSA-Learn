@@ -45,3 +45,14 @@ def sorted_squares(lst):
         write -= 1
 
     return result
+
+def is_palindrome(string):
+    left, right = 0, len(string) - 1
+
+    while left < right:
+        if string[left].lower() != string[right].lower():
+            return False
+        left += 1
+        right -= 1
+
+    return True
