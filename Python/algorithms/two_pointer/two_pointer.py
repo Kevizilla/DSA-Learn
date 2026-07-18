@@ -16,13 +16,13 @@ def two_sum_sorted(lst, target):
 
     return None
 
- def remove_duplicates(lst):
-     write = 0
+def remove_duplicates(lst):
+    write = 0
 
-     for read in range(1, len(lst)):
+    for read in range(1, len(lst)):
 
-         if lst[write] != lst[read]:
-             write += 1
-             lst[write] = lst[read]
+        if lst[write] != lst[read]:
+            write += 1
+            lst[write] = lst[read]
 
-     return write + 1
+    return write + 1
