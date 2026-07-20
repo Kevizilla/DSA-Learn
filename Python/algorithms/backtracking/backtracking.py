@@ -20,3 +20,26 @@ def generate_subsets(lst):
 
     _backtrack(0)
     return result
+
+def generate_permutations(lst):
+    result = []
+    current = []
+    used = set()
+
+    def backtrack():
+        if len(lst) == len(current):
+            result.append(current.copy())
+            return
+
+        for num in lst:
+            if num in used:
+                continue
+            current.append(num)
+            used.add(num)
+            backtrack()
+            used.remove(current.pop())
+
+    backtrack()
+    return result
+
+print(generate_permutations([1, 2, 3]))
