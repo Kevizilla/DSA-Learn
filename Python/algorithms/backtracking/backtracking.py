@@ -65,5 +65,29 @@ def combination_sum(nums, target):
     backtrack(0, target)
     return result
 
+def is_safe(board, row, col):
+    current_row = row -1
+    current_col = col
+    while current_row >= 0:
+        if board[current_row][col] == "Q":
+            return False
+        current_row -= 1
 
+    current_col = col - 1
+    current_row = row - 1
 
+    while current_row >= 0 and current_col >= 0:
+        if board[current_row][current_col] == "Q":
+            return False
+        current_row -= 1
+        current_col -= 1
+
+    current_col = col + 1
+    current_row = row - 1
+    while current_row >= 0 and current_col < len(board[0]):
+        if board[current_row][current_col] == "Q":
+            return False
+        current_row -= 1
+        current_col += 1
+
+    return True
