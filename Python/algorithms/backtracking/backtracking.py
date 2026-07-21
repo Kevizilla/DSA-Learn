@@ -62,6 +62,5 @@ def generate_permutations(lst):
             current.pop()
             backtrack(index + 1, remaining)
 
-
         backtrack(0, target)
         return result
