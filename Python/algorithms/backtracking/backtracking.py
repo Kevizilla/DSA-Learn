@@ -42,22 +42,19 @@ def generate_permutations(lst):
             backtrack()
             used.remove(current.pop())
 
-    def combination_sum(lst,  target):
+    def combination_sum(nums, target):
         result = []
         current = []
-        index = 0
-        remaining = target
 
         def backtrack(index, remaining):
-            if ...:
-                ...
+            # Base cases
+            if remaining == 0:
+                result.append(current.copy())
+                return
 
-            # Take current number
-            ...
+            if remaining < 0 or index == len(nums):
+                return
 
-            backtrack(_____, _____)
 
-            ...
-
-            # Skip current number
-            backtrack(_____, _____)
+        backtrack(0, target)
+        return result
