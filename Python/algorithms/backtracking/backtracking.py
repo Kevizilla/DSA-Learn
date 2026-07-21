@@ -42,25 +42,28 @@ def generate_permutations(lst):
             backtrack()
             used.remove(current.pop())
 
-    def combination_sum(nums, target):
-        result = []
-        current = []
+def combination_sum(nums, target):
+    result = []
+    current = []
 
-        def backtrack(index, remaining):
-            # Base cases
-            if remaining == 0:
-                result.append(current.copy())
-                return
+    def backtrack(index, remaining):
+        # Base cases
+        if remaining == 0:
+            result.append(current.copy())
+            return
 
-            if remaining < 0 or index == len(nums):
-                return
+        if remaining < 0 or index == len(nums):
+            return
 
-            num = nums[index]
-            current.append(num)
-            backtrack(index, remaining - num)
+        num = nums[index]
+        current.append(num)
+        backtrack(index, remaining - num)
 
-            current.pop()
-            backtrack(index + 1, remaining)
+        current.pop()
+        backtrack(index + 1, remaining)
 
-        backtrack(0, target)
-        return result
+    backtrack(0, target)
+    return result
+
+
+
