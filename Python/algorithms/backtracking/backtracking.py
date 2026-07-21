@@ -1,3 +1,6 @@
+from pip._internal.models import index
+
+
 def generate_subsets(lst):
     result = []
     current = []
@@ -39,7 +42,22 @@ def generate_permutations(lst):
             backtrack()
             used.remove(current.pop())
 
-    backtrack()
-    return result
+    def combination_sum(lst,  target):
+        result = []
+        current = []
+        index = 0
+        remaining = target
 
-print(generate_permutations([1, 2, 3]))
+        def backtrack(index, remaining):
+            if ...:
+                ...
+
+            # Take current number
+            ...
+
+            backtrack(_____, _____)
+
+            ...
+
+            # Skip current number
+            backtrack(_____, _____)
