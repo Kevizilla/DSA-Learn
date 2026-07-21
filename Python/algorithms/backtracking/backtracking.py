@@ -55,6 +55,13 @@ def generate_permutations(lst):
             if remaining < 0 or index == len(nums):
                 return
 
+            num = nums[index]
+            current.append(num)
+            backtrack(index, remaining - num)
+
+            current.pop()
+            backtrack(index + 1, remaining)
+
 
         backtrack(0, target)
         return result
